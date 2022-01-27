@@ -12,9 +12,14 @@ public class LoginForm {
                     System.out.println("Am apasat butonul de login");
                     try {
                         Application.getInstance().login(new User(txtUsername.getText(), new String(txtPassword.getPassword())));
+
                         JOptionPane.showMessageDialog(null, "Login successfully!");
                         mainPanel.setVisible(false);
-                        owner.setContentPane(new TeacherForm().getPanel1());
+                        if(Application.getInstance().currentUser.menuStrategy.getAccountType().toString().compareTo("TEACHER") == 0)
+                            owner.setContentPane(new TeacherForm().getPanel1());
+                        else
+                            owner.setContentPane(new StudentForm().getPanel2());
+
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(null, ex.getMessage());
                     }
