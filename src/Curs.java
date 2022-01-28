@@ -106,6 +106,23 @@ public class Curs  {
 		}
 	}
 
+	public boolean cautaStudent(Student s){
+		for(Student student:studenti)
+		{
+			if(student.nume == s.nume && student.prenume == s.prenume)
+				return true;
+
+		}
+		return false;
+	}
+
+	public boolean cautaProfesor(Profesor p){
+		if(this.profu.equals(p))
+			return true;
+		else
+			return false;
+	}
+
 	public void AfisareNumeCurs() {
 		System.out.println(this.nume + ":");
 	}

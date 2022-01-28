@@ -1,10 +1,7 @@
 import java.beans.ExceptionListener;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -20,6 +17,9 @@ public class Application {
         }
         return  single_instance;
     }
+
+    public HardcodatDataManager manager = new HardcodatDataManager();
+    public ManagerCursuri managerCursuri = new ManagerCursuri();
 
     private Application() {
          /* HardcodatDataManager dataManager = new HardcodatDataManager();
@@ -51,6 +51,21 @@ public class Application {
         this.initUsers();
     }
 
+    public void salvareUser(String username, String password, MenuStrategy meniu){
+        this.initUsers();
+        userList.add(new User(username,password,meniu));
+        try(FileOutputStream fisier = new FileOutputStream("users.xml")) {
+            XMLEncoder encoder = new XMLEncoder(fisier);
+            encoder.writeObject(this.userList);
+            encoder.close();
+            fisier.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void initUsers() {
         try (FileInputStream fis = new FileInputStream("users.xml")) {
             XMLDecoder decoder = new XMLDecoder(fis);
@@ -68,8 +83,10 @@ public class Application {
         int index = userList.indexOf(user);
         if ( index != -1 ) {
             Application.getInstance().currentUser = userList.get(index);
+            Application.getInstance().managerCursuri.setCursuri(manager.createCoursesData());
         } else {
             throw new Exception("Username sau parola este gresita!");
         }
     }
+
 }

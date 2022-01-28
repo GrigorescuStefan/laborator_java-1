@@ -14,8 +14,11 @@ enum DISPLAY_TYPE  {
 
 public class TestClass {
 	public static void main(String[] args) {
+		HardcodatDataManager dataManager = new HardcodatDataManager();
+		ArrayList<Student> listaStudenti = new ArrayList<>(Arrays.asList(dataManager.createStudentsData()));
+		ArrayList<Profesor> listaProfesori = new ArrayList<>(Arrays.asList(dataManager.createProfesorData()));
 		JFrame frame = new JFrame("Graphic user interface");
-		LoginForm loginForm = new LoginForm(frame);
+		LoginForm loginForm = new LoginForm(frame,listaProfesori,listaStudenti);
 		frame.setContentPane(loginForm.getMainPanel());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();

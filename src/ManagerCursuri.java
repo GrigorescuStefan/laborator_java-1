@@ -1,4 +1,6 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ManagerCursuri {
@@ -6,7 +8,7 @@ public class ManagerCursuri {
 	List<Curs> cursuri;
 	
 	// Metoda cauta un curs in lista de cursuri si arunca exceptie in cazul in care nu-l gaseste. Exceptia trebuie tratata in exterior
-	private Curs search(Curs unCurs) throws Exception {
+	public Curs search(Curs unCurs) throws Exception {
 		int i = cursuri.indexOf(unCurs);
 		if ( i != -1 ) {
 			return cursuri.get(i);
@@ -56,6 +58,43 @@ public class ManagerCursuri {
 			}
 		}
 	}
+
+	public void setCursuri(Curs[] curs){
+		cursuri = new ArrayList<>(Arrays.asList(curs));
+	}
+
+	public boolean searchStudent(Student student){
+		for(Curs c:cursuri){
+			if(c.cautaStudent(student))
+				return true;
+		}
+		return false;
+	}
+
+	public boolean searchProfesor(Profesor profesor){
+		for(Curs c:cursuri){
+			if(c.cautaProfesor(profesor))
+				return true;
+		}
+		return false;
+	}
+
+	public String[] showCoursesByProfesor(Profesor profesor){
+		String[] lista = new String[cursuri.size()];
+		int nr=0;
+		for(Curs c:cursuri){
+			if(c.profu.nume.equals(profesor.nume) && c.profu.prenume.equals(profesor.prenume)) {
+				lista[nr++]=c.nume;
+			}
+		}
+		return lista;
+	}
+
+	public List<Curs> getCursuri(){
+		return cursuri;
+	}
+
+
 	
 	public void reportAllStudentsGrades() {
 		for( Curs c: cursuri) {

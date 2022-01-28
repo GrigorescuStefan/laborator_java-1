@@ -10,6 +10,11 @@ public class Student implements Comparable {
 		this.prenume = prenume;
 		this.grupa = grupa;
 	}
+
+	public Student(String nume, String prenume){
+		this.nume = nume;
+		this.prenume = prenume;
+	}
 	
 	Student(ArrayList<String> properties) throws Exception {
 		if ( properties.size() != 3 ) {
@@ -27,36 +32,16 @@ public class Student implements Comparable {
 
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + grupa;
-		result = prime * result + ((nume == null) ? 0 : nume.hashCode());
-		result = prime * result + ((prenume == null) ? 0 : prenume.hashCode());
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Student student = (Student) o;
+		return nume.equals(student.nume) && prenume.equals(student.prenume);
 	}
 
-
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Student other = (Student) obj;
-		if (nume == null) {
-			if (other.nume != null)
-				return false;
-		} else if (!nume.equals(other.nume))
-			return false;
-		if (prenume == null) {
-			if (other.prenume != null)
-				return false;
-		} else if (!prenume.equals(other.prenume))
-			return false;
-		return true;
+	public int hashCode() {
+		return Objects.hash(nume, prenume);
 	}
 
 	@Override
