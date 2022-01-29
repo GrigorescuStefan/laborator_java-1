@@ -106,12 +106,18 @@ public class Curs  {
 		}
 	}
 
+	public int returneazaNota(Student s){
+		if(this.nota.get(s) == null)
+			return 0;
+		else
+			return this.nota.get(s);
+	}
+
 	public boolean cautaStudent(Student s){
 		for(Student student:studenti)
 		{
-			if(student.nume == s.nume && student.prenume == s.prenume)
+			if(student.nume.equals(s.nume) && student.prenume.equals(s.prenume))
 				return true;
-
 		}
 		return false;
 	}

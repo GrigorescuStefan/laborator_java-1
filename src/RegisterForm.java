@@ -9,6 +9,7 @@ public class RegisterForm {
     private JTextField textField2;
     private JTextField textField3;
     private JButton registerButton;
+    private JButton loginButton;
     private JFrame admin;
 
     public JPanel getPanel2() {
@@ -33,6 +34,14 @@ public class RegisterForm {
                         Application.getInstance().salvareUser(userName,passWord,meniu);
                     }
                 }
+                admin.setContentPane(new LoginForm(admin).getMainPanel());
+            }
+        });
+
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel2.setVisible(false);
                 admin.setContentPane(new LoginForm(admin).getMainPanel());
             }
         });

@@ -21,7 +21,7 @@ public class LoginForm {
                         if(Application.getInstance().currentUser.menuStrategy.getAccountType().toString().compareTo("TEACHER") == 0)
                             owner.setContentPane(new TeacherForm(owner).getPanel1());
                         else
-                            owner.setContentPane(new StudentForm().getPanel2());
+                            owner.setContentPane(new StudentForm(owner).getPanel2());
 
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -55,7 +55,7 @@ public class LoginForm {
                         if(Application.getInstance().currentUser.menuStrategy.getAccountType().toString().compareTo("TEACHER") == 0)
                             owner.setContentPane(new TeacherForm(owner).getPanel1());
                         else
-                            owner.setContentPane(new StudentForm().getPanel2());
+                            owner.setContentPane(new StudentForm(owner).getPanel2());
 
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(null, ex.getMessage());

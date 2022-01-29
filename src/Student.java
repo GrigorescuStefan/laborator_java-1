@@ -3,17 +3,19 @@ public class Student implements Comparable {
 	public String nume;
 	public String prenume;
 	public int grupa;
+	//public int an;
 
 	public Student() { }
-	Student(String nume, String prenume, int grupa) {
+
+	public Student(String nume, String prenume) {
+		this.nume = nume;
+		this.prenume = prenume;
+	}
+
+	public Student(String nume, String prenume, int grupa) {
 		this.nume = nume;
 		this.prenume = prenume;
 		this.grupa = grupa;
-	}
-
-	public Student(String nume, String prenume){
-		this.nume = nume;
-		this.prenume = prenume;
 	}
 	
 	Student(ArrayList<String> properties) throws Exception {

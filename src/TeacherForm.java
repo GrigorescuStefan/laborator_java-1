@@ -10,12 +10,6 @@ public class TeacherForm {
 
     public TeacherForm(JFrame admin){
         this.admin = admin;
-        logOutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                admin.setContentPane(new LoginForm(admin).getMainPanel());
-            }
-        });
         showAllCoursesWithButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -92,6 +86,14 @@ public class TeacherForm {
                         }
                     }
                 }
+            }
+        });
+
+        logOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel1.setVisible(false);
+                admin.setContentPane(new LoginForm(admin).getMainPanel());
             }
         });
     }
