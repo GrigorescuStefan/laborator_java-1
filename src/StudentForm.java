@@ -30,6 +30,13 @@ public class StudentForm {
                     textField1.setText(String.valueOf(Application.getInstance().managerCursuri.reportAverageGradesOfStudent(new Student(nume,prenume))));
             }
         });
+        logOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel2.setVisible(false);
+                admin.setContentPane(new LoginForm(admin).getMainPanel());
+            }
+        });
     }
 
     private JPanel panel2;
@@ -37,5 +44,6 @@ public class StudentForm {
     private JList list1;
     private JButton averageGradeButton;
     private JTextField textField1;
+    private JButton logOutButton;
     private JFrame admin;
 }
