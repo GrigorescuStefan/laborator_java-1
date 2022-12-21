@@ -12,12 +12,13 @@ public class HardcodatDataManager implements IDataLoader {
 		this.createCoursesData();
 	}
 	
+	// Numele au fost alese la intamplare
 	public Student[] createStudentsData() {
-		String nume[] = { "Jarcau", "Oprea", "Solomon", "Patrascu", "Damian", "Cristea", "Visoiu", "Andrei", "Petreanu", "Dragomir", "Gavrila",	"Suciu", "Rotaru", "Grigorescu", "Dudulescu", "Stanculescu"
-				, "Vajaiac", "Istudor",	"Bruma", "Neagu", "Popa", "Gribincea", "Cucu", "Milea",	"Coca",	"Iorga", "Budau", "Maracineanu", "Pascociu", "Ionita",	"Paltanea"
-				, "Spunei", "Stoian", "Raulea",	"Trifan", "Visan", "Rusu", "Silitra", "Puia" };
-		String prenume[] = { "Stefan", "Ionut", "Andrei" ,"Nicolae","Maria","Florinela","Andrei","Mihai","Marius","Sergiu","Iulian","Mihai","Daria","Stefan","Stefan","Daniel","Marius"
-				,"Cristian","Daniel","Elena","Ana-Maria","Valentina","Ioana","Daniel","Paul","Bianca","David","Constantin","Andreea","Cezar","Auras","Razvan","Emanuel","Andrei","Ioan","Marian","Victor","Florin","Madalina"};
+		String nume[] = { "Adamescu", "Aldulescu", "Balauru", "Baicu", "Becheru", "Botnari", "Budescu", "Caiman", "Caciuc", "Călătoru", "Debu", "Dianu", "Daiciu", "Digulescu", "Dinea", "Ecobescu"
+				, "Elencu", "Elisei", "Elvireanu", "Enache", "Encea", "Eretescu", "Erneanu", "Ersegean", "Evinoiu", "Fachin", "Fagu", "Faroghi", "Fechea", "Fecioru", "Felecanu"
+				, "Feodor", "Gaboreanu", "Gaftea", "Galaicu", "Galeru", "Geaferu", "Ghemea", "Ghenoiu" };
+		String prenume[] = { "Mihai", "Andrei", "Stefan", "Nicolae", "Maria", "Cristina", "Ionut", "Mihai", "Marius", "Alin", "Iulian", "Octavian", "Daria", "Lucian", "Luca", "Daniel" ,"Marius"
+				, "Cristian", "Daniel", "Elena", "Ana-Maria", "Valentina", "Ioana", "Vasile", "Paul", "Bianca", "David", "Constantin", "Georgiana", "Cezar", "Victor", "Razvan", "Emanuel", "Florentina", "Ioan", "Marian" ,"Nina", "Tudor", "Madalina"};
 		
 		Student studenti[] = new Student[nume.length];
 		for (int i = 0; i < nume.length;i++) {
@@ -28,7 +29,7 @@ public class HardcodatDataManager implements IDataLoader {
 	}
 	
 	public Profesor[] createProfesorData() {
-		String nume[] = { "URSUTIU", "PANA", "ALEXANDRU","CRETU ", "KRISTALY", "DANILA", "DEMETER",	"DIACONU", "ILEA", "POP", "BOER" };
+		String nume[] = { "URSUTIU", "PANA", "ALEXANDRU","CRETU ", "KRISTALY", "DANILA", "DEMETER", "DIACONU", "ILEA", "POP", "BOER" };
 		String prenume[] = {"DORU","GHEORGHE", "MARIAN","NICOLAE CONSTANTIN", "DOMINIC", "ADRIAN", "ROBERT", "LAURENTIU", "GELU","MIHAIL", "ATTILA"};
 		Profesor profesori[] = new Profesor[nume.length];
 		for (int i = 0; i < nume.length;i++) {
